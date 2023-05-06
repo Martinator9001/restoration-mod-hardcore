@@ -895,22 +895,22 @@ tweak_data.casino = {
 tweak_data.experience_manager.stage_failed_multiplier = 0.5
 -- From update 34
 tweak_data.experience_manager.stage_completion = {
-	200,
-	250,
-	300,
-	350,
-	425,
-	475,
-	550
+	40,
+	50,
+	60,
+	70,
+	85,
+	95,
+	110
 }
 tweak_data.experience_manager.job_completion = {
+	400,
+	800,
 	2000,
+	3200,
 	4000,
-	10000,
-	16000,
-	20000,
-	28000,
-	32000
+	5600,
+	6400
 }
 
 tweak_data.experience_manager.pro_day_multiplier = {
