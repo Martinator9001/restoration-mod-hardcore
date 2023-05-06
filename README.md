@@ -1,3 +1,4 @@
+# My additions
 This is an progression rebalance of the original Restoration Mod, as of now you have a 10/90 split on spending and offshore cash and 20% of the original XP on single day heists.
 
 # Restoration Mod
