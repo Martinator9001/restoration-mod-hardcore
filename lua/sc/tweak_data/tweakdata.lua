@@ -923,6 +923,59 @@ tweak_data.experience_manager.pro_day_multiplier = {
 	1
 }
 
+--xp system complete change
+local multiplier = 1
+tweak_data.experience_manager.levels = {
+	{
+		points = 10000 * multiplier
+	},
+	{
+		points = 20000 * multiplier
+	},
+	{
+		points = 30000 * multiplier
+	},
+	{
+		points = 40000 * multiplier
+	},
+	{
+		points = 50000 * multiplier
+	},
+	{
+		points = 60000 * multiplier
+	},
+	{
+		points = 70000 * multiplier
+	},
+	{
+		points = 80000 * multiplier
+	},
+	{
+		points = 90000 * multiplier
+	}
+}
+
+local exp_step_start = 10
+local exp_step_end = 100
+local exp_step = 1 / (exp_step_end - exp_step_start)
+local exp_step_last_points = 4600
+local exp_step_curve = 1
+
+for i = exp_step_start, exp_step_end do
+	tweak_data.experience_manager.levels[i] = {
+		points = math.round((1000000 - exp_step_last_points) * math.pow(exp_step * (i - exp_step_start), exp_step_curve) + exp_step_last_points) * multiplier
+	}
+end
+
+tweak_data.experience_manager.difficulty_multiplier = {
+	3.5,
+	6.5,
+	10.1,
+	14.1,
+	17.6,
+	19.5
+}
+
 if Global.game_settings and Global.game_settings.one_down then
 	tweak_data.experience_manager.pro_job_new = 1.2
 end
