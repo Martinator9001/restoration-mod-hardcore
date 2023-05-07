@@ -1,19 +1,23 @@
-Hooks:PostHook( MoneyTweakData, "init", "SC_MoneyTweaks", function(self, tweak_data)
+Hooks:PostHook(MoneyTweakData, "init", "SC_MoneyTweaks", function(self, tweak_data)
+	--spending cash and offshore cash split
+	self.offshore_rate = 0.1 -- spending cash part of total
+	self.mandatory_mult = 0.9 -- offshore cash part of total
+
 	-- New Pro Job Bonus
 	self.pro_job_new = 0
 	--if one down, give 20% more cash/exp
 	if Global.game_settings and Global.game_settings.one_down then
 		self.pro_job_new = 1.2
 	end
-	-- self.difficulty_multiplier_payout = {
-	-- 	1,
-	-- 	2,
-	-- 	3,
-	-- 	3.5,
-	-- 	4,
-	-- 	4.5,
-	-- 	5
-	-- }
+	self.difficulty_multiplier_payout = {
+	 	0.25,
+	 	0.875,
+	 	1.625,
+	 	2.525,
+	 	3.525,
+	 	4.4,
+	 	4.875
+	 }
 	local smallest_cashout = (self.stage_completion[1] + self.job_completion[1]) * self.offshore_rate
 	local max_mult = 12500
 	local biggest_weapon_cost = math.round((self.biggest_cashout * 1.15) * max_mult)
