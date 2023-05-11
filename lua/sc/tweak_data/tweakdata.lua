@@ -898,9 +898,8 @@ tweak_data.casino = {
 	infamous_chance = 3
 }	
 
-tweak_data.experience_manager.stage_failed_multiplier = 0.5
 -- From update 34
-tweak_data.experience_manager.stage_completion = {
+--[[tweak_data.experience_manager.stage_completion = {
 	200,
 	250,
 	300,
@@ -917,69 +916,25 @@ tweak_data.experience_manager.job_completion = {
 	20000,
 	28000,
 	32000
+}]]
+
+tweak_data.experience_manager.difficulty_multiplier = {
+	0.1,
+	0.24,
+	1.56,
+	6.692,
+	20.74,
+	47.44
 }
 
 tweak_data.experience_manager.pro_day_multiplier = {
-	1,
-	1,
-	1,
-	1,
-	1,
-	1,
-	1
-}
-
---xp system complete change
-local multiplier = 1
-tweak_data.experience_manager.levels = {
-	{
-		points = 8000 * multiplier
-	},
-	{
-		points = 16000 * multiplier
-	},
-	{
-		points = 24000 * multiplier
-	},
-	{
-		points = 32000 * multiplier
-	},
-	{
-		points = 40000 * multiplier
-	},
-	{
-		points = 48000 * multiplier
-	},
-	{
-		points = 56000 * multiplier
-	},
-	{
-		points = 64000 * multiplier
-	},
-	{
-		points = 72000 * multiplier
-	}
-}
-
-local exp_step_start = 10
-local exp_step_end = 100
-local exp_step = 1 / (exp_step_end - exp_step_start)
-local exp_step_last_points = 72000
-local exp_step_curve = 1
-
-for i = exp_step_start, exp_step_end do
-	tweak_data.experience_manager.levels[i] = {
-		points = math.round((800000 - exp_step_last_points) * math.pow(exp_step * (i - exp_step_start), exp_step_curve) + exp_step_last_points) * multiplier
-	}
-end
-
-tweak_data.experience_manager.difficulty_multiplier = {
-	3.5,
-	6.5,
-	10.1,
-	14.1,
-	17.6,
-	19.6
+	1.5,
+	1.75,
+	1,9
+	2,
+	2,
+	2,
+	2
 }
 
 if Global.game_settings and Global.game_settings.one_down then
